@@ -1,0 +1,27 @@
+def plot_alb(df):
+    fig, axs = plt.subplots(4, 1, sharex=True, figsize=(6, 6))
+    fig.hspace = 0
+    fig.suptitle('Variables over Time')
+
+    leng = len(df[['LiAdj Close']])
+    # x = np.arange(0, leng, 1)
+    x = df['Sentiscore']
+
+    # Plot each graph, and manually set the y tick values
+    axs[0].plot(x, df[['LiAdj Close']])
+    axs[0].set_ylabel('Price Li')
+    
+    axs[1].plot(x, df[['ALBVolume']])
+    axs[1].set_ylabel('Vol ALB')
+    
+    axs[2].plot(x, df[['LiVolume']])
+    axs[2].set_ylabel('Vol Li')
+
+    axs[3].plot(x, df[['ALBAdj Close']])
+    axs[3].set_ylabel('Price ALB')
+
+    axs[3].set_xlabel('Time (days)')
+
+    plt.show()
+
+
