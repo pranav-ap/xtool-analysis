@@ -55,5 +55,8 @@ for date, scores in daily_scores.items():
 data['sentiment_scores'] = sentiment_scores
 
 with open(file_path, 'w') as file:
-    json.dump(data, file, indent=4)
-
+    try:
+        json.dump(data, file, indent=4)
+    except:
+        print("Error writing to JSON file")
+        exit(1)
